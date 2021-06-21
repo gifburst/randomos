@@ -1,0 +1,45 @@
+This Win32 sendmail comes from the Tin archive at
+ftp://ftp.wa.com/pub/users/ntnews/tin/utils 
+
+To use it, place it in your path and put the following line in lynx.cfg.
+
+SYSTEM_MAIL:sendmail -f me@my.host -h my.host -r my.smtp.mailer -m SMTP
+
+You can use a specific path to sendmail if you want instead of putting
+it in your path.
+
+You need to change the three "my" values to reflect you local
+configuration.  Also, it may not work if you have a different default
+command interpreter than the Windows default.
+
+Here are the instructions that came with it for people who may want to
+use this for other purposes.
+
+             Setting up sendmail.exe for use from within Tin
+             ===============================================
+
+Sendmail can use two transports, either MAPI or send mail over TCP/IP to a 
+local SMTP server.  The following sections detail the entry required in 
+your ~/tin/tinrc file.  Problems?  Send email to nigele@microsoft.com
+
+Sendmail supports sending to multiple recipients.  The to list should be a
+comma, space or semi-colon delimited list of recipients.
+
+==
+
+1) MAPI
+
+If you want to edit using the MAPI dialog use: 
+
+  default_mailer_format=sendmail -m XMAPI -t"%T" -f %U -s "%S" -F %F
+
+Otherwise:
+
+  default_mailer_format=sendmail -m MAPI -t"%T" -f %U -s "%S" -F %F
+
+2) SMTP
+
+  default_mailer_format=sendmail -f myname@microsoft.com -h myhostname 
+                                 -r mysmtphost -m SMTP -t"%T" 
+                                 -f %U -s "%S" -F %F
+

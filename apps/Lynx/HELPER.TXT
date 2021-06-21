@@ -1,0 +1,11 @@
+Using raplayer with Lynx in Win95 (and maybe NT?).  It takes a little
+work.  First you need to have raplayer and have it in your path.  Next
+you need to have a HOME variable pointing to a valid directory.  Then
+you create a .mailcap in the home directory (It works in Win95) and
+put this in it:
+
+audio/x-pn-realaudio; raplayer %s
+
+Remember that once you set the HOME variable your bookmarks need to be
+there as well.  The only problem is it pops you into full GUI mode when
+the player starts up but you can flip back over and all will be ok.
